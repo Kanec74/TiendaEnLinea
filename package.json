@@ -1,0 +1,36 @@
+{
+  "name": "TiendaEnLinea",
+  "version": "1.0.0",
+  "description": "Proyecto Tienda en Lineal",
+  "private": true,
+  "scripts": {
+    "dev": "gulp",
+    "production": "gulp build --production"
+  },
+  "author": "Kanec",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
+    "browser-sync": "^2.23.6",
+    "browserify": "^16.1.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "node-sass": "^4.7.2",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.15",
+    "angular": "^1.6.9",
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "ngstorage": "^0.3.11",
+    "popper.js": "^1.12.9"
+  }
+}

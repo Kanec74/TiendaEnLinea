@@ -1,0 +1,50 @@
+<h1>
+Producto
+</h1>
+
+<h4>{{producto.name}} </h4>
+
+<hr>
+
+<div>
+	<form ng-submit="addProducto()">
+		
+		<div ng-hide="creando">
+			Codigo (ID):
+			<br>
+			<input type="text" class="form-control" ng-model="producto.id" readonly="readonly">
+			<br>
+		</div>
+
+		SKU:
+		<br>
+		<input type="text" class="form-control" ng-model="producto.sku" required placeholder="SKU del Producto">
+		<br>
+
+		Nombre:
+		<br>
+		<input type="text" class="form-control" ng-model="producto.name" required placeholder="Nombre del Producto">
+		<br>
+
+		Precio:
+		<br>
+		<input type="text" class="form-control" ng-model="producto.price" required placeholder="Precio del Producto">
+		<br>
+
+		Descripción:
+		<br>
+		<textarea class="form-control" ng-model="producto.description" rows="3" placeholder="Descripción breve del Producto">
+		</textarea>
+		<br>
+
+		<button type="submit" class="btn btn-primary">
+			Guardar
+		</button>
+
+		<br><br>
+		<p ng-show="actualizado"> Registro Actualizado</p>
+
+	</form>
+
+
+</div>

@@ -1,0 +1,59 @@
+
+<h1>Usuarios</h1>
+<!-- {{usuarios | json}} -->
+
+<form class="form-inline">
+	<div class="form-group">
+
+		<label for="usuario_nombre">Nombre:</label>
+		<input id="usuario_nombre" type="text" name="nombre" class="form-control" ng-model="user.nombre">
+		
+	</div>
+
+	<div class="form-group">
+
+		<label for="usuario_email">Email:</label>
+		<input id="usuario_email" type="email" name="email" class="form-control" ng-model="user.email">
+		
+	</div>
+
+	<div class="form-group">
+
+		<label for="usuario_username">username:</label>
+		<input id="usuario_username" type="text" name="username" class="form-control" ng-model="user.username">
+		
+	</div>
+
+	<button type="button" class="btn btn-primary" ng-click="addUsuario()"> Añadir Usuarios</button>
+</form>
+
+<table class="table">
+	<thead>
+		<tr>
+			<td>Nombre</td>
+			<td>Email</td>
+			<td>UserName</td>
+
+			
+
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr ng-repeat="usuario in $storage.usuarios">
+			<td>{{usuario.nombre}}</td>
+			<td>{{usuario.email}}</td>
+			<td>{{usuario.username}}</td>
+			<td>
+
+				<a ui-sref="app.usuarios.detalle(usuario)" class="btn btn-outline-success"> Liga con Param</a>
+
+				<button type="button" class="btn btn-outline-info" ng-click="editarUsuario($index)"> Editar;</button>
+			
+				<button type="button" class="btn btn-outline-danger" ng-click="removeUsuario($index)"> &times;</button>
+			</td>
+		</tr>
+
+	</tbody>
+
+</table>
