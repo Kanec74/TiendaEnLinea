@@ -17,7 +17,7 @@
 			<th>SKU</th>
 			<th>Nombre</th>
 			<th>Precio</th>
-			<th>Ver</th>
+			<th>Opciones</th>
 
 		</tr>
 
@@ -26,7 +26,12 @@
 			<td> {{ producto.sku }}</td>
 			<td> {{ producto.name }}</td>
 			<td> {{ producto.price }}</td>
-			<td> <a ui-sref="app.productos.detalle({producto.sku})"> Ver Producto </a> 
+			<td> <a ui-sref="app.productos.detalle({idproducto: producto.id})" class="btn btn-outline-success"> Ver Producto </a> 
+				<button class="btn btn-info">  <i class="icon-plus-sign"></i> Agregar a Lista de Deseos   </button>
+				<button class="btn btn-info">  <i class="icon-plus-sign"></i> Agregar a Carrito   </button>
+				<button type="button" class="btn btn-outline-danger" ng-click="removeProducto($index)"> &times;</button>
+
+
 			</td>
 
 		</tr>

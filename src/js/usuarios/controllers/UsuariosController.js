@@ -31,8 +31,8 @@ function UsuariosController($scope, $localStorage){
 	]*/
 
 	$scope.addUsuario = function(){
-		let usuario1 = angular.copy($scope.user)
-		$scope.$storage.usuarios.push(usuario1)
+		let usuario = angular.copy($scope.user)
+		$scope.$storage.usuarios.push(usuario)
 		$scope.user = _newUser()
 	}
 
