@@ -1,31 +1,31 @@
-
 <h1>Usuarios</h1>
 <!-- {{usuarios | json}} -->
 
 <form class="form-inline">
 	<div class="form-group">
-
-		<label for="usuario_nombre">Nombre:</label>
-		<input id="usuario_nombre" type="text" name="nombre" class="form-control" ng-model="user.nombre">
-		
+		<!-- <label for="usuario_nombre">Nombre:</label> -->
+		<!-- <input id="usuario_nombre" type="text" name="nombre" class="form-control" ng-model="user.nombre"> -->
+		<button type="button" class="btn btn-primary" ui-sref="app.usuarios.añadir"> Añadir Usuarios </button>
+		<!-- <button type="button" class="btn btn-primary" ng-click="addUsuario()"> Añadir Usuarios</button> -->
 	</div>
-
+<!--
 	<div class="form-group">
 
 		<label for="usuario_email">Email:</label>
 		<input id="usuario_email" type="email" name="email" class="form-control" ng-model="user.email">
-		
+
 	</div>
 
 	<div class="form-group">
 
 		<label for="usuario_username">username:</label>
 		<input id="usuario_username" type="text" name="username" class="form-control" ng-model="user.username">
-		
-	</div>
 
-	<button type="button" class="btn btn-primary" ng-click="addUsuario()"> Añadir Usuarios</button>
+	</div>
+-->
+
 </form>
+<!-- Encabezado de la tabla-->
 
 <table class="table">
 	<thead>
@@ -33,27 +33,27 @@
 			<td>Nombre</td>
 			<td>Email</td>
 			<td>UserName</td>
-
-			
-
+			<td>Password</td>
 		</tr>
 	</thead>
+<!-- fin del Encabezado -->
 
+<!-- Caja de arreglo de los usuarios-->
 	<tbody>
 		<tr ng-repeat="usuario in $storage.usuarios">
 			<td>{{usuario.nombre}}</td>
 			<td>{{usuario.email}}</td>
 			<td>{{usuario.username}}</td>
+			<td>{{usuario.pasword}}<td>
 			<td>
-
-				<a ui-sref="app.usuarios.detalle(usuario)" class="btn btn-outline-success"> Liga con Param</a>
-
-				<button type="button" class="btn btn-outline-info" ng-click="editarUsuario($index)"> Editar;</button>
-			
+				<button type="button" class="btn btn-outline-info"ng-click="editarUsuario($index)" ui-sref="app.usuarios.detalle(usuario)" class="btn btn-outline-success"> Editar</button>
+				<!-- <button class="btn btn-default" data-toggle="confirmation">Confirmation</button> -->
 				<button type="button" class="btn btn-outline-danger" ng-click="removeUsuario($index)"> &times;</button>
 			</td>
 		</tr>
 
 	</tbody>
-
+<!-- Fin de la caja de arreglo -->
 </table>
+
+<!-- Fin de la tabla-->
