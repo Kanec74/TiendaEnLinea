@@ -1,7 +1,9 @@
 ListaDeseosDetalleController.$inject =['$scope', '$stateParams', '$localStorage']
 
 function ListaDeseosDetalleController ($scope, $stateParams, $localStorage){
-	console.log($stateParams);
+	
+	$scope.$storage = $localStorage
+	
 	$scope.idlistadeseos = $stateParams.idlistadeseos
 
 	/*$scope.listadeseos = $localStorage.listasdeseos.find(function(listadeseos){

@@ -1,4 +1,6 @@
-function ListaDeseosController($scope, $localStorage){
+ListaDeseosController.$inject = ['$scope', '$stateParams', '$localStorage']
+
+function ListaDeseosController($scope, $stateParams,$localStorage){
 
 	$scope.$storage = $localStorage.$default({
 		listasdeseos:[]
@@ -9,7 +11,7 @@ function ListaDeseosController($scope, $localStorage){
 	$scope.addListaDeseos = function(){
 		let listadeseo = angular.copy($scope.listadeseo)
 		$scope.$storage.listasdeseos.push(listadeseo)
-		$scope.listadeseos = _newListaDeseos()
+		$scope.listadeseo = _newListaDeseos()
 	}
 
 	function _newListaDeseos(){
@@ -17,16 +19,18 @@ function ListaDeseosController($scope, $localStorage){
 	}
 
 	$scope.removeListaDeseos = function(index){
-		$scope.$storage.listasDeseos.splice(index,1)	
+		$scope.$storage.listasdeseos.splice(index,1)	
 	}
+
 
 	$scope.editarListaDeseos = function(index){
 		let listadeseos = $scope.$storage.listasdeseos.splice(index,1)
 		$scope.listadeseos = listadeseos[0]
 	} 
+	
 }
 
-ListaDeseosController.$inject = ['$scope', '$localStorage']
+
 
 
 module.exports = ListaDeseosController

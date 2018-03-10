@@ -26,10 +26,13 @@
 			<td> {{ producto.sku }}</td>
 			<td> {{ producto.name }}</td>
 			<td> {{ producto.price }}</td>
-			<td> <a ui-sref="app.productos.detalle({idproducto: producto.id})" class="btn btn-outline-success"> Ver Producto </a> 
-				<button class="btn btn-info">  <i class="icon-plus-sign"></i> Agregar a Lista de Deseos   </button>
-				<button class="btn btn-info">  <i class="icon-plus-sign"></i> Agregar a Carrito   </button>
-				<button type="button" class="btn btn-outline-danger" ng-click="removeProducto($index)"> &times;</button>
+			<td> <a ui-sref="app.productos.detalle({idproducto: producto.id})" class="btn btn-outline-success"> <i class="material-icons">pageview</i> Ver</a> 
+
+				<button class="btn btn-info">  <i class="material-icons">list</i> Lista de Deseos  </button>
+				<button class="btn btn-info" ng-click="addItemCarrito($index)"> <i class="material-icons">add_shopping_cart</i> </button>
+				
+				
+				<button type="button" class="btn btn-outline-danger" ng-click="removeProducto($index)"> <i class="material-icons">delete_forever</i> </button>
 
 
 			</td>
@@ -39,4 +42,7 @@
 	<br>
 
 </div>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 

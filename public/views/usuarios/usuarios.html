@@ -46,7 +46,7 @@
 			<td>{{usuario.username}}</td>
 			<td>{{usuario.pasword}}<td>
 			<td>
-				<button type="button" class="btn btn-outline-info"ng-click="editarUsuario($index)" ui-sref="app.usuarios.detalle(usuario)" class="btn btn-outline-success"> Editar</button>
+				<button type="button" class="btn btn-outline-info"ui-sref="app.usuarios.detalle(usuario)" class="btn btn-outline-success"> Editar</button>
 				<!-- <button class="btn btn-default" data-toggle="confirmation">Confirmation</button> -->
 				<button type="button" class="btn btn-outline-danger" ng-click="removeUsuario($index)"> &times;</button>
 			</td>

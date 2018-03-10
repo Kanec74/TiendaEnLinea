@@ -1,7 +1,7 @@
 <h1><i class="material-icons">shopping_cart</i>Carrito de Compras</h1>
 <hr>
 
-<!--<button type="button" class="btn btn-primary" ng-click="addItemCarrito()"> Añadir producto</button>-->
+<button type="button" class="btn btn-primary" ng-click="addItemCarrito()"> Añadir producto</button>
 <div class="row">
 
 	<table class="table table-striped">
@@ -22,7 +22,7 @@
 			<td> {{ carrito.lot }}</td>
 			<td> {{ carrito.total }}</td>
 			<td>  <a ui-sref="app.productos.detalle({idproducto: carrito.productoId})" class="btn btn-outline-success"> Ver Producto </a>
-			<button type="button" class="btn btn-outline-danger" ng-click="removeItemCarrito($index)"><i class="material-icons">delete_forever</i></button></td>
+			<button type="button" class="btn btn-outline-danger" ng-click="removeItemCarrito($index)"><i class="material-icons">remove_shopping_cart</i></button></td>
 
 		</tr>
 	</table>
