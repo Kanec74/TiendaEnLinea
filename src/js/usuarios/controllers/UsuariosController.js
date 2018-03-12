@@ -3,25 +3,17 @@ function UsuariosController($scope, $localStorage){
 	$scope.$storage = $localStorage.$default({
 		usuarios:[]
 	})
-
-	//$scope.user = {}
-	$scope.user = _newUser()
-
-	$scope.addUsuario = function(){
-		let usuario1 = angular.copy($scope.user)
-		$scope.$storage.usuarios.push(usuario1)
-		$scope.user = _newUser()
-
-	}
-
-	function _newUser(){
-		return { nombre: '', email: '', username: '', password: ''}
-	}
+// Eliminar usuarios ------------------------------------------------------------------
 
 	$scope.removeUsuario = function(index){
 
 		$scope.$storage.usuarios.splice(index,1)
 	}
+
+// Fin de eliminar usuarios -----------------------------------------------------------
+
+
+// Editar usarios --------------------------------------------------------------------
 
 	$scope.editarUsuario = function(index){
 		let user = $scope.$storage.usuarios.splice(index,1)
@@ -29,6 +21,7 @@ function UsuariosController($scope, $localStorage){
 	}
 }
 
-UsuariosController.$inject = ['$scope', '$localStorage']
+// Fin de editar usuarios -------------------------------------------------------------
 
+UsuariosController.$inject = ['$scope', '$localStorage']
 module.exports = UsuariosController

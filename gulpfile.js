@@ -49,7 +49,7 @@ gulp.task('serve', ['sass', 'js'], function(){
 
 	gulp.watch("src/sass/**/*.scss",['sass']);
 	gulp.watch("src/js/**/*.js",['js-watch']);
-	gulp.watch(["src/views/**/*.html", "src/index.html"],['views-watch']);
+	gulp.watch(["src/views/**/*.html", "src/index.html", "src/img/*.*" ],['views-watch']);
 
 	//gulp.watch("public/**/*.html").on('change',browserSync.reload );
 
@@ -101,7 +101,12 @@ gulp.task('views',['views:index'], function(){
 	.pipe(gulp.dest('./public/views'))
 })
 
-gulp.task('views:index', function(){
+gulp.task('views:index', ['views:img'], function(){
 	return gulp.src('./src/index.html')
 	.pipe(gulp.dest('./public'))
+})
+
+gulp.task('views:img', function(){
+	return gulp.src('./src/img/**')
+	.pipe(gulp.dest('./public/img'))
 })

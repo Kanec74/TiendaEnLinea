@@ -18,7 +18,7 @@ angular.module('app.carrito', ['ui.router'])
 			name: 'app.carritodecompra.detalle',
 			params:{
 				iditemcarrito: {
-					value: '999'  //Valor por Defecto
+					value: '000'  //Valor por Defecto
 				}
 			},
 			templateUrl: '/views/carritodecompra/carritodecompradetalle.html',

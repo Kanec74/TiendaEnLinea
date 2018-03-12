@@ -1,39 +1,21 @@
-<h1>Usuarios</h1>
-<!-- {{usuarios | json}} -->
+<h2> <i class="material-icons">supervisor_account</i> Usuarios</h2>
 
-<form class="form-inline">
-	<div class="form-group">
-		<!-- <label for="usuario_nombre">Nombre:</label> -->
-		<!-- <input id="usuario_nombre" type="text" name="nombre" class="form-control" ng-model="user.nombre"> -->
-		<button type="button" class="btn btn-primary" ui-sref="app.usuarios.añadir"> Añadir Usuarios </button>
-		<!-- <button type="button" class="btn btn-primary" ng-click="addUsuario()"> Añadir Usuarios</button> -->
-	</div>
-<!--
-	<div class="form-group">
-
-		<label for="usuario_email">Email:</label>
-		<input id="usuario_email" type="email" name="email" class="form-control" ng-model="user.email">
-
-	</div>
-
-	<div class="form-group">
-
-		<label for="usuario_username">username:</label>
-		<input id="usuario_username" type="text" name="username" class="form-control" ng-model="user.username">
-
-	</div>
--->
-
-</form>
+<div class="row" align="right">
+		<button type="button" class="btn btn-primary" ui-sref="app.usuarios.detalle({idusuario: '000'})">
+		Añadir Usuarios </button>
+<br><br>
+</div>
 <!-- Encabezado de la tabla-->
-
-<table class="table">
+<div class="row">
+<table class="table table-striped">
 	<thead>
 		<tr>
+			<td>ID</td>
 			<td>Nombre</td>
 			<td>Email</td>
 			<td>UserName</td>
 			<td>Password</td>
+		 	<td>Rol</td>
 		</tr>
 	</thead>
 <!-- fin del Encabezado -->
@@ -41,13 +23,16 @@
 <!-- Caja de arreglo de los usuarios-->
 	<tbody>
 		<tr ng-repeat="usuario in $storage.usuarios">
+			<td>{{usuario.id_usuario}}</td>
 			<td>{{usuario.nombre}}</td>
 			<td>{{usuario.email}}</td>
 			<td>{{usuario.username}}</td>
-			<td>{{usuario.pasword}}<td>
+			<td>{{usuario.password}}<td>
+			<td>{{usuario.rol}}</td>
 			<td>
-				<button type="button" class="btn btn-outline-info"ui-sref="app.usuarios.detalle(usuario)" class="btn btn-outline-success"> Editar</button>
-				<!-- <button class="btn btn-default" data-toggle="confirmation">Confirmation</button> -->
+				
+				<button type="button" class="btn btn-outline-info"ui-sref="app.usuarios.detalle({idusuario: usuario.id_usuario})" class="btn btn-outline-success"> Editar</button>
+				
 				<button type="button" class="btn btn-outline-danger" ng-click="removeUsuario($index)"> &times;</button>
 			</td>
 		</tr>

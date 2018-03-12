@@ -1,11 +1,15 @@
-<h1>Bienvenido {{ nombre }}</h1>
-
+<h2>Bienvenido</h2>
+<img src="img/logo.jpg" height="300" width="400" alt="logo"/>
 <form>
 		<div class="form-group">
 					
-			<label for="nombre"> Nombre: </label>
+			<label for="nombre"> Usuario: </label>
 
-			<input id="input-nombre" type="text" name="nombre" class="form-control" ng-model="nombre">
+			<input id="input-nombre" type="text" name="nombre" class="form-control" ng-model="email">
+
+			<label for="nombre"> Contraseña: </label>
+
+			<input id="input-nombre" type="text" name="nombre" class="form-control" ng-model="password">
 
             <button type="button" name="button" class="btn btn-primary" ng-click="presionar()"> Acceso a Sistema
           </button>

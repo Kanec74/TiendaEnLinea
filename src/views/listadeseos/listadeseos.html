@@ -1,4 +1,4 @@
-<h1>Relación de las listas de Deseos del Usuario</h1>
+<h2> <i class="material-icons">list</i> Listas de Deseos</h1>
 
 <!-- para crear una lista de Deseos-->
 <div class="row">
@@ -27,7 +27,7 @@
         <td>{{listadeseo.nombre}}</td>
         <td>
           
-          <button type="button" class="btn btn-outline-info" ng-click="editarListaDeseos($index)">Editar Lista</button>
+          <button type="button" class="btn btn-outline-info" ng-click="editarListaDeseos({nombre: listadeseo.nombre})">Editar Lista</button>
           
           <button type="button" class="btn btn-outline-danger" ng-click="removeListaDeseos($index)"> <i class="material-icons">delete_forever</i> </button>
           
@@ -36,6 +36,3 @@
     </tbody>
   </table>
 </div>
-
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">

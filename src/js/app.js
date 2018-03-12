@@ -45,17 +45,7 @@ function Config($stateProvider){
 			}]
 
 		})
-		// .state({
-		// 	name: 'app.perfil',
-		// 	url:'/profile/{username}',
-		// 	templateUrl: '/views/profile.html',
-		// 	controller: ['$scope', '$stateParams',
-		// 		function ProfileController ($scope, $stateParams){
-		// 			$scope.username = $stateParams.username
-		// 	}]
-
-		// })
-
+		
 }
 
 

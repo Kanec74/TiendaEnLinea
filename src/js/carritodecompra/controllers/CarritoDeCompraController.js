@@ -6,7 +6,6 @@ function CarritoDeCompraController($scope, $localStorage){
 		carrito:[]
 	})
 
-	//$scope.user = {}
 	$scope.itemcarrito = _newItemCarrito()
 
 	$scope.addItemCarrito = function(){

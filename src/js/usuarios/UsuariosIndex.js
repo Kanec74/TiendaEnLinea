@@ -13,29 +13,21 @@ angular.module('app.usuarios', ['ui.router'])
 						templateUrl: '/views/usuarios/usuarios.html',
 						controller: 'UsuariosController'
 						})
-					.state({
-						name: 'app.usuarios.detalle',
-						url:'/{username}',
-						params:{email:''},
-						templateUrl: '/views/usuarios/profile.html',
-						controller: 'ProfileController'
-						})
-						.state({
-							name: 'app.usuarios.añadir',
-							url:'',
-							templateUrl:'/views/usuarios/crear_usuario.html',
-							controller: 'UsuariosController'
-						})
-						.state({
-							name: 'app.usuarios.editar',
-							url: '',
-							templateUrl: '/views/usuarios/editar_usuario.html',
-							controller: 'UsuariosController'
-						})
 
+						.state({
+							name: 'app.usuarios.detalle',
+							params:{
+							idusuario: {
+							value: '000'  //Valor por Defecto
+							}
+							},
 
+							templateUrl: '/views/usuarios/usuariodetalle.html',
+							controller: 'UsuariosDetalleController'
+
+						})
 
 	}])
 .controller('UsuariosController', require('./controllers/UsuariosController'))
 
-.controller('ProfileController', require('./controllers/ProfileController'))
+.controller('UsuariosDetalleController', require('./controllers/UsuariosDetalleController'))

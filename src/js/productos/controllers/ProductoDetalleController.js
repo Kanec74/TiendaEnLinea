@@ -1,6 +1,6 @@
 // Controlador de ProductoDetalle
-ProductoDetalleController.$inject =['$scope', '$stateParams', '$localStorage']
-	function ProductoDetalleController ($scope, $stateParams, $localStorage){
+ProductoDetalleController.$inject =['$scope', '$stateParams', '$localStorage', '$state']
+	function ProductoDetalleController ($scope, $stateParams, $localStorage, $state){
 		$scope.$storage = $localStorage
 
 		console.log($stateParams)
@@ -21,6 +21,7 @@ ProductoDetalleController.$inject =['$scope', '$stateParams', '$localStorage']
 			producto.id = producto.sku
 			$scope.$storage.productos.push(producto)
 			$scope.producto = _newProducto()
+			
 		}
 
 		function _newProducto(){

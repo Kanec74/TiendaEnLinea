@@ -18,7 +18,7 @@ angular.module('app.listadeseos', ['ui.router'])
 			name: 'app.listadeseos.detalle',
 			params:{
 				idlistadeseos: {
-					value: '888'  //Valor por Defecto
+					value: '000'  //Valor por Defecto
 				}
 			},
 			templateUrl: '/views/listadeseos/listadeseosdetalle.html',
@@ -29,7 +29,7 @@ angular.module('app.listadeseos', ['ui.router'])
 			name: 'app.listadeseos.detalleitem',
 			params:{
 				iditemlistadeseos: {
-					value: '777'  //Valor por Defecto
+					value: '000'  //Valor por Defecto
 				}
 			},
 			templateUrl: '/views/listadeseos/listadeseositem.html',

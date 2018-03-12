@@ -4,17 +4,7 @@ function ProductosController($scope, $localStorage){
 		productos:[]
 	})
 
-	//$scope.user = {}
-	//$scope.producto = _newProducto()
-
-	// $scope.addProducto = function(){
-	// 	let producto = angular.copy($scope.producto)
-	// 	$scope.$storage.productos.push(producto)
-	// 	$scope.producto = _newProducto()
-	// }
-
 	
-
 	$scope.removeProducto = function(index){
 		$scope.$storage.productos.splice(index,1)	
 	}
@@ -32,13 +22,12 @@ function ProductosController($scope, $localStorage){
     			$scope.producto = elemento
 
     		}
-    		//console.log(elemento, indice);
+    		
 		});
 
 		
 		let itemcarrito =  newItemCarrito($scope.producto )
 
-		//console.log(itemcarrito)
 		var itemcarritoActual;
 
         for (var i = 0; i < $scope.$storage.carrito.length; i++) {
@@ -53,14 +42,13 @@ function ProductosController($scope, $localStorage){
             itemcarritoActual.lot++;
         }
 
-		//$scope.$storage.carrito.push(itemcarrito)
-		
+				
 	}
 
 	function newItemCarrito(producto){
 		console.log(producto)
 
-		return { productoId: producto.id, name: producto.name, price: producto.price, lot:'1.00', total: producto.price}
+		return { productoId: producto.id, name: producto.name, price: producto.price, lot:'1', total: producto.price}
 	}
 }
 

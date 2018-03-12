@@ -1,11 +1,11 @@
 AppController.$inject = ['$scope']
 
 function AppController($scope){
-	$scope.nombre = 'Desconocido'
+	$scope.nombre = 'Usuario'
 
-	$scope.presionar = function(){
-		alert("hola desde AppController")
-	}
+	// $scope.presionar = function(){
+	// 	alert("hola desde AppController")
+	// }
 }
 
 

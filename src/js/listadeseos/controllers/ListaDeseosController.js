@@ -15,7 +15,8 @@ function ListaDeseosController($scope, $stateParams,$localStorage){
 	}
 
 	function _newListaDeseos(){
-		return { nombre: '', id: ''}
+		return { nombre: ''}
+		//return { nombre: '', id: ''}
 	}
 
 	$scope.removeListaDeseos = function(index){

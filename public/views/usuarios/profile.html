@@ -1,33 +1,45 @@
-<h1> Detalle del usuario </h1>
-<form class="form-inline">
+<h1> Usuario </h1>
+<h4>{{usuario.nombre}}</h4>
 
-  <div class="form-group">
-		<label for="usuario_nombre">{{usuario.nombre}}:</label>
-  </br>
+<div>
+	<form ng-submit="addUsuario()">
+		<div ng-hide="creando">
+		ID:
+			<br>
+			<input type="text" class="form-control" ng-model="user.id_usuario" required placeholder="ID">
+			<br>
+		</div>
+    UserName:
+		<br>
+		<input type="text" class="form-control" ng-model="user.username" required placeholder="Usuario">
+		<br>
 
-	</div>
+		Nombre:
+		<br>
+		<input type="text" class="form-control" ng-model="user.nombre" required placeholder="Nombre del usuario">{{usuario.nombre}}
+		<br>
 
-	<div class="form-group">
-		<label for="usuario_email">{{usuario.email}}:</label>
-  </br>
+		Password:
+		<br>
+		<input type="text" class="form-control" ng-model="user.password" required placeholder="Contraseña">
+		<br>
 
-	</div>
+    Email:
+    <br>
+    <input type="text" class="form-control" ng-model="user.email" required placeholder="Email">
+    <br>
 
-  <div class="form-group">
-		<label for="usuario_username">{{usuario.username}}:</label>
-  </br>
+    Rol:
+		<br>
+		<input type="text" class="form-control" ng-model="user.rol" required placeholder="Rol">
+		<br>
 
-	</div>
+		<button type="submit" class="btn btn-primary">
+			Guardar
+		</button>
 
-  <div class="form-group">
-		<label for="usuario_password">{{usuario.password}}:</label>
-  </br>
+		<br><br>
+		<p ng-show="actualizado"> Registro Actualizado</p>
 
-	</div>
-
-	<div>
-    <button type="button" class="btn btn-outline-info" ui-sref="app.usuarios.editar">Editar</button>
-
-  </div>
-
-</form>
+	</form>
+</div>

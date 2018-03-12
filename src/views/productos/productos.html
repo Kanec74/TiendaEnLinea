@@ -1,9 +1,9 @@
-<h1>Productos</h1>
-<h4>Lista de Productos</h4>
+<h2> <i class="material-icons">store</i> Productos</h2>
+
 <hr>
 
 <div class="row" align="right">
-	<a ui-sref="app.productos.detalle({idProducto: '000'})" class="btn btn-info">
+	<a ui-sref="app.productos.detalle({idProducto: '000'})" class="btn btn-primary">
 		Crear Producto
 	</a>
 	<br><br>
@@ -13,6 +13,7 @@
 
 	<table class="table table-striped">
 		<tr>
+			<th>Imagen</th>
 			<th>ID-Producto</th>
 			<th>SKU</th>
 			<th>Nombre</th>
@@ -20,8 +21,9 @@
 			<th>Opciones</th>
 
 		</tr>
-
 		<tr ng-repeat="producto in $storage.productos">
+			<td> <img src="img/imagenNoDisponible180.png" height="60" width="60" alt="logo"/> </td>
+			
 			<td> {{ producto.id }}</td>
 			<td> {{ producto.sku }}</td>
 			<td> {{ producto.name }}</td>
@@ -42,7 +44,3 @@
 	<br>
 
 </div>
-
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-

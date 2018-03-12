@@ -1,0 +1,46 @@
+<h2> <i class="material-icons">account_box</i> Usuario </h2>
+<h4>{{usuario.nombre}}</h4>
+
+<div>
+	<form ng-submit="addUsuario()">
+		<div ng-hide="creando">
+		ID:
+			<br>
+			<input type="text" class="form-control" ng-model="user.id_usuario" required placeholder="ID">
+			<br>
+		</div>
+    	
+    	UserName:
+		<br>
+			<input type="text" class="form-control" ng-model="user.username" required placeholder="Usuario">
+		<br>
+
+		Nombre:
+		<br>
+			<input type="text" class="form-control" ng-model="user.nombre" required placeholder="Nombre del usuario">{{usuario.nombre}}
+		<br>
+
+		Password:
+		<br>
+			<input type="text" class="form-control" ng-model="user.password" required placeholder="Contraseña">
+		<br>
+
+    	Email:
+    	<br>
+    		<input type="text" class="form-control" ng-model="user.email" required placeholder="Email">
+    	<br>
+
+   		Rol:
+		<br>
+			<input type="text" class="form-control" ng-model="user.rol" required placeholder="Rol">
+		<br>
+
+		<button type="submit" class="btn btn-primary">
+			Guardar
+		</button>
+
+		<br><br>
+		<p ng-show="actualizado"> Registro Actualizado</p>
+
+	</form>
+</div>
