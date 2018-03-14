@@ -9,6 +9,10 @@ require('./listadeseos/ListaDeseosIndex')
 
 require('./carritodecompra/CarritoDeCompraIndex')
 
+require('./home/HomeIndex')
+
+require('./login/LoginIndex')
+
 //Modulos de la aplicacion
 angular.module('app', [
 	'ui.router',
@@ -16,13 +20,18 @@ angular.module('app', [
 	'app.usuarios',
 	'app.productos',
 	'app.listadeseos',
-	'app.carrito'
+	'app.carrito',
+	'app.home',
+    'app.login'
 ])
 
 
 
 angular.module('app')
 	.config(Config)
+	.constant('WEB_SERVICE', 'https://amazome.herokuapp.com')
+	.controller('AppController', require('./controllers/AppController'))
+
 
 Config.$inject = ['$stateProvider']
 
@@ -31,11 +40,11 @@ function Config($stateProvider){
 		.state({
 			name: 'app',
 			url:'',
-			template: '<ui-view>',
+			template: '<ui-view></ui-view>',
 			abstract: true
 
 		})
-		.state({
+		/*.state({
 			name: 'app.index',
 			url:'',
 			templateUrl: '/views/app.index.html',
@@ -44,12 +53,13 @@ function Config($stateProvider){
 				//$state.go('app.usuarios')
 			}]
 
-		})
+		})*/
 		
 }
 
 
-angular.module('app')
+/*angular.module('app')
 	.controller('AppController', require('./controllers/AppController'))
 	
 	
+*/

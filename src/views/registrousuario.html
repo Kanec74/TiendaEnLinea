@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="offset-md-4 col-4">
+    <form ng-submit="registroUsuario()">
+      <div class="form-group">
+        <label for="login_name">Tu nombre:</label>
+        <input type="text" name="name" ng-model="user.name" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="login_email">Correo electrónico:</label>
+        <input type="email" name="email" ng-model="user.email" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="login_password">Contraseña:</label>
+        <input type="password" name="password" ng-model="user.password" class="form-control" required>
+      </div>
+       <div class="form-group">
+        <label for="login_password_confirmation">Vuelve a escribir la contraseña :</label>
+        <input type="password" name="password" ng-model="user.password_confirmation" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Crear tu cuenta</button>
+    </form>
+  </div>
+</div>

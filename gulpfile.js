@@ -49,7 +49,7 @@ gulp.task('serve', ['sass', 'js'], function(){
 
 	gulp.watch("src/sass/**/*.scss",['sass']);
 	gulp.watch("src/js/**/*.js",['js-watch']);
-	gulp.watch(["src/views/**/*.html", "src/index.html", "src/img/*.*" ],['views-watch']);
+	gulp.watch(["src/views/**/*.html", "src/index.html"],['views-watch']);
 
 	//gulp.watch("public/**/*.html").on('change',browserSync.reload );
 

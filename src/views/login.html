@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="offset-md-4 col-4">
+    <form ng-submit="login()">
+      <div class="form-group">
+        <label for="login_email">Email:</label>
+        <input type="email" name="email" ng-model="auth.email" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="login_password">Password:</label>
+        <input type="password" name="password" ng-model="auth.password" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Ingresar</button>
+    </form>
+
+    <div class="divider divider-break">
+      <h6>¿Eres nuevo en Tienda?</h6>
+    </div>
+    
+    <div>
+      
+        <a id="createAccount" tabindex="6" ui-sref="app.register" >        Crear tu cuenta 
+        </a>
+      
+    </div>
+
+
+    <!-- <div>
+      <a  ui-sref="app.register" class="a-button-text" role="button"> Crear tu cuenta </a>
+    </div>
+ -->
+  </div>
+</div>
