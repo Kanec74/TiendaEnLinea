@@ -1,6 +1,6 @@
 <div class="row">
   <div class="offset-md-4 col-4">
-    <form ng-submit="registroUsuario()">
+    <form ng-submit="registrarUsuario()">
       <div class="form-group">
         <label for="login_name">Tu nombre:</label>
         <input type="text" name="name" ng-model="user.name" class="form-control" required>
@@ -19,5 +19,16 @@
       </div>
       <button type="submit" class="btn btn-primary">Crear tu cuenta</button>
     </form>
+
+    <div class="divider divider-break">
+      <h6>¿Ya tienes cuenta?</h6>
+    </div>
+    
+    <div>
+      
+        <a id="createAccount" tabindex="6" ui-sref="app.login" >        Iniciar Sessión 
+        </a>
+      
+    </div>
   </div>
 </div>
