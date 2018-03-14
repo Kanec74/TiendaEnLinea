@@ -1,9 +1,23 @@
-function ProductosController($scope, $localStorage){
+ProductosController.$inject = ['$scope','$http', 'WEB_SERVICE', '$localStorage', '$state', '$q']
+function ProductosController($scope, $http, WEB_SERVICE, $localStorage, $state, $q){
 
 	$scope.$storage = $localStorage.$default({
 		productos:[]
 	})
 
+	_obtenerProductos()
+
+	function _obtenerProductos() {
+		$http.get(WEB_SERVICE+'/products')
+		.then(function(response) {
+			let producto = response.data
+			$scope.$storage.productos = producto
+		})
+	}
+
+	$scope.addProducto = function (){
+
+	}
 	
 	$scope.removeProducto = function(index){
 		$scope.$storage.productos.splice(index,1)	
@@ -52,7 +66,7 @@ function ProductosController($scope, $localStorage){
 	}
 }
 
-ProductosController.$inject = ['$scope', '$localStorage']
+
 
 
 module.exports = ProductosController
