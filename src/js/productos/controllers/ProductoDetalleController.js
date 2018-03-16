@@ -9,7 +9,7 @@ ProductoDetalleController.$inject =['$scope','$http', 'WEB_SERVICE', '$statePara
 		_obtenerProductoDetalle()
 
 		function _obtenerProductoDetalle() {
-			console.log($scope.idproducto + " Este es el estate params id")
+			//console.log($scope.idproducto + " Este es el estate params id")
 			return $http.get(WEB_SERVICE+'/products/'+ $scope.idproducto)
 			.then(function (response){
 				console.log(response + " Este es el response")
@@ -25,29 +25,65 @@ ProductoDetalleController.$inject =['$scope','$http', 'WEB_SERVICE', '$statePara
 		}
 
 
+		$scope.addUpdateProducto = function(){
+			if($scope.producto.id==null || $scope.producto.id==0){
+				addProducto()
+			}else{
+				updateProducto()
+			}
+	}
 
-	$scope.addProducto = function(){
-		$http.post(WEB_SERVICE + '/products',{
+
+
+
+
+	function addProducto(){
+		if ($localStorage.user.role=='admin') {
+			$http.post(WEB_SERVICE + '/products',{
 		      product: $scope.producto
-		})
-		.then(function (response) {
-	      console.log(response)
-	      let data = response.data
-	      if (data.id) {
-	        alert("Registro agregado");
-	        $state.go('app.productos.index')
-	      }
-	    })
-	    .catch(function (e, response) {
-	      console.error(e)
-	      if (e.status == 404) {
-	        alert("No se pudo realizar el registro!")
-	      }
-	    })
+			})
+			.then(function (response) {
+		      console.log(response)
+		      let data = response.data
+		      if (data.id) {
+		        alert("Registro agregado");
+		        $state.go('app.productos.index')
+		      }
+		    })
+		    .catch(function (e, response) {
+		      console.error(e)
+		      if (e.status == 404) {
+		        alert("No se pudo realizar el registro!")
+		      }
+		    })
+		}else{
+			alert("Este perfil no puede realizar la operación")
+		}
 
 	}
 
-	$scope.updateProducto = function(){
+	function updateProducto(){
+		if ($localStorage.user.role=='admin') {
+			//console.log($scope.idproducto )
+			$http.put(WEB_SERVICE + '/products/'+ $scope.idproducto,{
+				product: $scope.producto
+			})
+			.then(function (response) {
+		      console.log(response)
+		      let data = response.data
+		      console.log(data)
+		        alert("Registro actualizado")
+		        $state.go('app.productos.index')
+		    })
+		    .catch(function (e, response) {
+		      console.error(e)
+		      if (e.status == 404) {
+		        alert("No se pudo realizar la actualización!")
+		      }
+		    })
+		}else{
+			alert("Este perfil no puede realizar la operación")
+		}
 	}
 /*	function _newProducto(){
 			return { 
