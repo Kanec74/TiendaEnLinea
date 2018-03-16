@@ -7,6 +7,8 @@ function ProductosController($scope, $http, WEB_SERVICE, $localStorage, $state, 
 
 	_obtenerProductos()
 
+	//addProducto()
+
 	function _obtenerProductos() {
 		$http.get(WEB_SERVICE+'/products')
 		.then(function(response) {
@@ -15,9 +17,9 @@ function ProductosController($scope, $http, WEB_SERVICE, $localStorage, $state, 
 		})
 	}
 
-	$scope.addProducto = function (){
+	//$scope.addProducto = function (){
 
-	}
+//	}
 	
 	$scope.removeProducto = function(index){
 		$scope.$storage.productos.splice(index,1)	

@@ -17,9 +17,7 @@ angular.module('app.productos', ['ui.router'])
 		.state({
 			name: 'app.productos.detalle',
 			params:{
-				idproducto: {
-					value: '222'  //Valor por Defecto
-				}
+				idproducto:{}
 			},
 			templateUrl: '/views/productos/productodetalle.html',
 			controller: 'ProductoDetalleController'
