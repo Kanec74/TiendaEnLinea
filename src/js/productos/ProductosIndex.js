@@ -4,6 +4,9 @@ angular.module('app.productos', ['ui.router'])
     .state({
 			name: 'app.productos',
 			url:'/productos',
+			params:{
+				idproducto:{}
+			},
 			template: '<ui-view />',
 			abstract:true
 

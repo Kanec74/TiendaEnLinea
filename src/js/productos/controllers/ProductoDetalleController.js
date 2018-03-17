@@ -20,6 +20,29 @@ ProductoDetalleController.$inject =['$scope','$http', 'WEB_SERVICE', '$statePara
 			})
 		}
 
+		$scope.removeProducto = function(){
+console.log("Eliminar usuario: "+$scope.idproducto)
+	/*	$http.delete(WEB_SERVICE + '/products/'+ $scope.id,{
+			product: $scope.producto
+		})
+		.then(function (response) {
+	      let data = response.data
+	        alert("Registro eliminado")
+	        _obtenerProductos()
+	    })
+	    .catch(function (e, response) {
+	      console.error(e)
+	      if (e.status == 404) {
+	        alert("No se pudo eliminar el producto!")
+	      }
+	    })*/
+	}
+
+	$scope.editarProducto = function(index){
+		let producto = $scope.$storage.productos.splice(index,1)
+		$scope.producto = producto[0]
+	} 
+
 		function _newProducto(){
 			return { id: '', name: '', sku: '', price: '', description: '', updated_at:'', created_at:''}
 		}
@@ -64,7 +87,7 @@ ProductoDetalleController.$inject =['$scope','$http', 'WEB_SERVICE', '$statePara
 
 	function updateProducto(){
 		if ($localStorage.user.role=='admin') {
-			//console.log($scope.idproducto )
+			console.log($scope.idproducto )
 			$http.put(WEB_SERVICE + '/products/'+ $scope.idproducto,{
 				product: $scope.producto
 			})

@@ -22,7 +22,21 @@ function ProductosController($scope, $http, WEB_SERVICE, $localStorage, $state, 
 //	}
 	
 	$scope.removeProducto = function(index){
-		$scope.$storage.productos.splice(index,1)	
+//		$scope.$storage.productos.splice(index,1)	
+		$http.delete(WEB_SERVICE + '/products/'+ index,{
+			product: $scope.producto
+		})
+		.then(function (response) {
+	      let data = response.data
+	        alert("Registro eliminado")
+	        _obtenerProductos()
+	    })
+	    .catch(function (e, response) {
+	      console.error(e)
+	      if (e.status == 404) {
+	        alert("No se pudo eliminar el producto!")
+	      }
+	    })
 	}
 
 	$scope.editarProducto = function(index){
