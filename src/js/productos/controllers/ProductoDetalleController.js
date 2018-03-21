@@ -21,7 +21,7 @@ ProductoDetalleController.$inject =['$scope','$http', 'WEB_SERVICE', '$statePara
 		}
 
 		$scope.removeProducto = function(){
-console.log("Eliminar usuario: "+$scope.idproducto)
+console.log("Eliminar producto: "+$scope.idproducto)
 	/*	$http.delete(WEB_SERVICE + '/products/'+ $scope.id,{
 			product: $scope.producto
 		})

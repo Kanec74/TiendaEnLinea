@@ -22,6 +22,7 @@ function ProductosController($scope, $http, WEB_SERVICE, $localStorage, $state, 
 //	}
 	
 	$scope.removeProducto = function(index){
+		if ($scope.$storage.user.role == 'admin'){
 //		$scope.$storage.productos.splice(index,1)	
 		$http.delete(WEB_SERVICE + '/products/'+ index,{
 			product: $scope.producto
@@ -37,6 +38,10 @@ function ProductosController($scope, $http, WEB_SERVICE, $localStorage, $state, 
 	        alert("No se pudo eliminar el producto!")
 	      }
 	    })
+		}else{
+			alert ("El producto solo puede ser eliminado por el Administrador")
+		}
+
 	}
 
 	$scope.editarProducto = function(index){
