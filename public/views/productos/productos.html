@@ -30,7 +30,18 @@
 			<td> {{ producto.name }}</td>
 			<td> {{ producto.price }}</td>
 			<td> <a ui-sref="app.productos.detalle({idproducto: producto.id})" class="btn btn-outline-success"> <i class="material-icons">pageview</i> Ver</a> 
-				<button class="btn btn-info" ng-click="addItemListaDeseos(producto,12)"> <i class="material-icons">list</i> Lista de deseos</button>
+				
+				<div class="btn-group" role="group" aria-label="Button group with nested dropdown"
+				  <div class="btn-group" role="group">
+				    <button id="btnGroupDrop1" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				      Lista de deseos
+				    </button>
+				    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" >
+				      <a class="dropdown-item" ng-repeat="listaDeseo in $storage.listaDeseos" ng-click="addItemListaDeseos(producto,listaDeseo)">{{listaDeseo.name}}</a>
+				    </div>
+				  </div>
+				</div>
+				<!--<button class="btn btn-info" ng-click="addItemListaDeseos(producto,12)"> <i class="material-icons">list</i> Lista de deseos</button>-->
 				<button class="btn btn-info" ng-click="addItemCarrito(producto)"> <i class="material-icons">add_shopping_cart</i> </button>
 				<button type="button" class="btn btn-outline-danger" ng-click="removeProducto(producto.id)"> <i class="material-icons">delete_forever</i> </button>
 			</td>

@@ -2,7 +2,8 @@ ProductosController.$inject = ['$scope','$http', 'WEB_SERVICE', '$localStorage',
 function ProductosController($scope, $http, WEB_SERVICE, $localStorage, $state, $q, carritoDeCompraService, listaDeseosService, productoService){
 
 	$scope.$storage = $localStorage.$default({
-		productos:[]
+		productos:[],
+		listaDeseos:[]
 	})
 
 	_obtenerProductos()
@@ -12,6 +13,10 @@ function ProductosController($scope, $http, WEB_SERVICE, $localStorage, $state, 
 	function _obtenerProductos() {
 		productoService.get().then(function (response) {
 				$scope.$storage.productos = response.data
+        })
+
+        listaDeseosService.get().then(function (response) {
+				$scope.$storage.listaDeseos = response.data
         })
 		/*$http.get(WEB_SERVICE+'/products')
 		.then(function(response) {
@@ -67,14 +72,14 @@ function ProductosController($scope, $http, WEB_SERVICE, $localStorage, $state, 
 		return { productoId: producto.id, name: producto.name, price: producto.price, lot:'1', total: producto.price}
 	}
 
-	$scope.addItemListaDeseos = function(product,idlista){
+	$scope.addItemListaDeseos = function(product,listaDeseo){
 		if (!$scope.isAuthenticated()) {
       		return alert('Inicia sesión para añadir productos al carrito')
     	}
-        listaDeseosService.addProductALista(product,idlista).then(function (response) {
+        listaDeseosService.addProductALista(product,listaDeseo).then(function (response) {
 
         	if (response.status = 201) {
-          		alert(`${product.name} fue añadido a una la lista de deseos`)
+          		alert(`${product.name} fue añadido a la lista: ${listaDeseo.name}`)
         	}
         })
     }

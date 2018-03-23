@@ -21,8 +21,8 @@ function ListaDeseosService($http, WEB_SERVICE) {
       })
     },
 
-    addProductALista: function _addProductALista(product,idlista) {
-      return $http.post( encodeURI(`${WEB_SERVICE}/wish_lists/${idlista}/products`), {
+    addProductALista: function _addProductALista(product,listaDeseo) {
+      return $http.post( encodeURI(`${WEB_SERVICE}/wish_lists/${listaDeseo.id}/products`), {
         product: {
           id: product.id
         }
