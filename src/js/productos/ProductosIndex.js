@@ -31,3 +31,5 @@ angular.module('app.productos', ['ui.router'])
 .controller('ProductosController', require('./controllers/ProductosController'))
 
 .controller('ProductoDetalleController', require('./controllers/ProductoDetalleController'))
+
+.factory('productoService', require('./services/ProductoService'))

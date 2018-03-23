@@ -8,21 +8,20 @@
 		<tr>
 			<th>ID producto</th>
 			<th>Nombre</th>
+			<th>Descripcion</th>
 			<th>Precio</th>
-			<th>Cantidad</th>
-			<th>Total</th>
+			
 			<th></th>
 
 		</tr>
 
-		<tr ng-repeat="carrito in $storage.carrito">
-			<td> {{ carrito.productoId }}</td>
-			<td> {{ carrito.name }}</td>
-			<td> {{ carrito.price }}</td>
-			<td> {{ carrito.lot }}</td>
-			<td> {{ carrito.total }}</td>
-			<td>  <a ui-sref="app.productos.detalle({idproducto: carrito.productoId})" class="btn btn-outline-success"> Ver Producto </a>
-			<button type="button" class="btn btn-outline-danger" ng-click="removeItemCarrito($index)"><i class="material-icons">remove_shopping_cart</i></button></td>
+		<tr ng-repeat="itemCarrito in $storage.carrito">
+			<td> {{ itemCarrito.id }}</td>
+			<td> {{ itemCarrito.name }}</td>
+			<td> {{ itemCarrito.description }}</td>
+			<td> {{ itemCarrito.price }}</td>
+			<td>  <a ui-sref="app.productos.detalle({idproducto: itemCarrito.id})" class="btn btn-outline-success"> Ver Producto </a>
+			<button type="button" class="btn btn-outline-danger" ng-click="removeItemCarrito(itemCarrito)"><i class="material-icons">remove_shopping_cart</i></button></td>
 
 		</tr>
 	</table>

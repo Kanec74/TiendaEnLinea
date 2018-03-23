@@ -1,5 +1,5 @@
-ProductoDetalleController.$inject =['$scope','$http', 'WEB_SERVICE', '$stateParams', '$localStorage', '$state', '$q']
-	function ProductoDetalleController ($scope, $http, WEB_SERVICE, $stateParams, $localStorage, $state, $q){
+ProductoDetalleController.$inject =['$scope','$http', 'WEB_SERVICE', '$stateParams', '$localStorage', '$state', '$q', 'productoService']
+	function ProductoDetalleController ($scope, $http, WEB_SERVICE, $stateParams, $localStorage, $state, $q, productoService){
 		console.log($stateParams)
 
 		$scope.$storage = $localStorage
@@ -9,15 +9,21 @@ ProductoDetalleController.$inject =['$scope','$http', 'WEB_SERVICE', '$statePara
 		_obtenerProductoDetalle()
 
 		function _obtenerProductoDetalle() {
+			
+			productoService.get($scope.idproducto).then(function (response) {
+        		let data = response.data
+
+				$scope.producto = data
+        	})
 			//console.log($scope.idproducto + " Este es el estate params id")
-			return $http.get(WEB_SERVICE+'/products/'+ $scope.idproducto)
+			/*return $http.get(WEB_SERVICE+'/products/'+ $scope.idproducto)
 			.then(function (response){
 				console.log(response + " Este es el response")
 				let data = response.data
 
 				$scope.producto = data
 
-			})
+			})*/
 		}
 
 		$scope.removeProducto = function(){

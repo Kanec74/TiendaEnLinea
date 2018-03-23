@@ -43,3 +43,5 @@ angular.module('app.listadeseos', ['ui.router'])
 .controller('ListaDeseosDetalleController', require('./controllers/ListaDeseosDetalleController'))
 
 .controller('ListaDeseosDetalleItemController', require('./controllers/ListaDeseosDetalleItemController'))
+
+.factory('listaDeseosService', require('./services/ListaDeseosService'))

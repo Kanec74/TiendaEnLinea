@@ -1,13 +1,17 @@
-CarritoDeCompraController.$inject = ['$scope', '$localStorage']
+CarritoDeCompraController.$inject = ['$scope', '$localStorage', 'carritoDeCompraService']
 
-function CarritoDeCompraController($scope, $localStorage){
+function CarritoDeCompraController($scope, $localStorage, carritoDeCompraService){
 
 	$scope.$storage = $localStorage.$default({
 		carrito:[]
 	})
 
-	$scope.itemcarrito = {}
-	$scope.itemcarrito = _newItemCarrito()
+	//$scope.itemcarrito = {}
+	//$scope.itemcarrito = _newItemCarrito()
+	if ($scope.isAuthenticated()) {
+    	_getItemsCarrito()
+  	}
+
 
 	$scope.addItemCarrito = function(){
 		let itemcarrito = angular.copy($scope.itemcarrito)
@@ -19,9 +23,14 @@ function CarritoDeCompraController($scope, $localStorage){
 		return { productoId:'123', name: 'Producto', price: '100.00', lot:'2.00', total:'200'}
 	}
 
-	$scope.removeItemCarrito = function(index){
-		$scope.$storage.carrito.splice(index,1)	
-		$scope.totalCompra = _getTotal()
+	$scope.removeItemCarrito = function(product){
+		carritoDeCompraService.delete(product).then(function (response) {
+      		if (response.status == 204) {
+        		_getItemsCarrito()
+      		}
+    	})
+		//$scope.$storage.carrito.splice(index,1)	
+		//$scope.totalCompra = _getTotal()
 	}
 
 	$scope.editarItemCarrito = function(index){
@@ -43,6 +52,12 @@ function CarritoDeCompraController($scope, $localStorage){
 	}
 
     $scope.totalCompra = _getTotal()
+
+    function _getItemsCarrito() {
+    	carritoDeCompraService.get().then(function (response) {
+     	 $scope.$storage.carrito = response.data
+   		})
+  	}
 }
 
 module.exports = CarritoDeCompraController

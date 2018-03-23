@@ -30,3 +30,5 @@ angular.module('app.carrito', ['ui.router'])
 .controller('CarritoDeCompraController', require('./controllers/CarritoDeCompraController'))
 
 .controller('CarritoDeCompraDetalleController', require('./controllers/CarritoDeCompraDetalleController'))
+
+.factory('carritoDeCompraService', require('./services/CarritoDeCompraService'))

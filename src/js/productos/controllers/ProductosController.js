@@ -1,5 +1,5 @@
-ProductosController.$inject = ['$scope','$http', 'WEB_SERVICE', '$localStorage', '$state', '$q']
-function ProductosController($scope, $http, WEB_SERVICE, $localStorage, $state, $q){
+ProductosController.$inject = ['$scope','$http', 'WEB_SERVICE', '$localStorage', '$state', '$q', 'carritoDeCompraService', 'productoService']
+function ProductosController($scope, $http, WEB_SERVICE, $localStorage, $state, $q, carritoDeCompraService, productoService){
 
 	$scope.$storage = $localStorage.$default({
 		productos:[]
@@ -10,11 +10,16 @@ function ProductosController($scope, $http, WEB_SERVICE, $localStorage, $state, 
 	//addProducto()
 
 	function _obtenerProductos() {
-		$http.get(WEB_SERVICE+'/products')
+		productoService.get().then(function (response) {
+				$scope.$storage.productos = response.data
+        })
+
+
+		/*$http.get(WEB_SERVICE+'/products')
 		.then(function(response) {
 			let producto = response.data
 			$scope.$storage.productos = producto
-		})
+		})*/
 	}
 
 	//$scope.addProducto = function (){
@@ -49,9 +54,17 @@ function ProductosController($scope, $http, WEB_SERVICE, $localStorage, $state, 
 		$scope.producto = producto[0]
 	} 
 
-	$scope.addItemCarrito = function(index){
+	$scope.addItemCarrito = function(product){
 		
-		$scope.$storage.productos.forEach(function (elemento, indice, array) {
+		if (!$scope.isAuthenticated()) {
+      		return alert('Inicia sesión para añadir productos al carrito')
+    	}
+        carritoDeCompraService.add(product).then(function (response) {
+        	if (response.status = 201) {
+          		alert(`${product.name} fue añadido al carrito`)
+        	}
+        })
+		/*$scope.$storage.productos.forEach(function (elemento, indice, array) {
     		if (indice === index){
     			//let producto = $scope.$storage.productos.splice(index,1)
     			$scope.producto = elemento
@@ -76,7 +89,7 @@ function ProductosController($scope, $http, WEB_SERVICE, $localStorage, $state, 
         } else {
             itemcarritoActual.lot++;
         }
-
+*/
 				
 	}
 

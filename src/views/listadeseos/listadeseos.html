@@ -8,7 +8,7 @@
       <label for="listadeseo_nombre">Nombre de la lista:</label>
       <input id="listadeseo_nombre" type="text" name="nombre" class="form-control" ng-model="listadeseo.nombre">
     </div>
-      <button type="button" class="btn btn-primary" ng-click="addListaDeseos()">Crear Lista</button>
+      <button type="button" class="btn btn-primary" ng-click="addListaDeseos(listadeseo.nombre)">Crear Lista</button>
   </form>
 </div>
 <br>
@@ -24,10 +24,10 @@
     <tbody>
       <tr ng-repeat="listadeseo in $storage.listasdeseos">
         <!-- <td>{{listadeseo.id}}</td> -->
-        <td>{{listadeseo.nombre}}</td>
+        <td>{{listadeseo.name}}</td>
         <td>
           
-          <button type="button" class="btn btn-outline-info" ng-click="editarListaDeseos({nombre: listadeseo.nombre})">Editar Lista</button>
+          <button type="button" class="btn btn-outline-info" ng-click="editarListaDeseos({name: listadeseo.name})">Editar Lista</button>
           
           <button type="button" class="btn btn-outline-danger" ng-click="removeListaDeseos($index)"> <i class="material-icons">delete_forever</i> </button>
           
