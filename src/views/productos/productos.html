@@ -30,16 +30,10 @@
 			<td> {{ producto.name }}</td>
 			<td> {{ producto.price }}</td>
 			<td> <a ui-sref="app.productos.detalle({idproducto: producto.id})" class="btn btn-outline-success"> <i class="material-icons">pageview</i> Ver</a> 
-
-				<button class="btn btn-info">  <i class="material-icons">list</i> Lista de Deseos  </button>
+				<button class="btn btn-info" ng-click="addItemListaDeseos(producto,12)"> <i class="material-icons">list</i> Lista de deseos</button>
 				<button class="btn btn-info" ng-click="addItemCarrito(producto)"> <i class="material-icons">add_shopping_cart</i> </button>
-				
-				
 				<button type="button" class="btn btn-outline-danger" ng-click="removeProducto(producto.id)"> <i class="material-icons">delete_forever</i> </button>
-
-
 			</td>
-
 		</tr>
 	</table>
 	<br>

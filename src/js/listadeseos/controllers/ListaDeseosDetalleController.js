@@ -1,17 +1,33 @@
 ListaDeseosDetalleController.$inject =['$scope','$http', 'WEB_SERVICE', '$stateParams', '$localStorage', '$state', '$q', 'listaDeseosService']
 
 function ListaDeseosDetalleController ($scope, $http, WEB_SERVICE, $stateParams, $localStorage, $state, $q, listaDeseosService){
-	console.log($stateParams)
 	$scope.$storage = $localStorage
 	
-	$scope.idlistadeseos = $stateParams.idlista
+	
+	$scope.idlistadeseos = $stateParams.idlistadeseos
+	$scope.$storage = $localStorage.$default({
+		listaproducts:[]
+	})
 
-	/*$scope.listadeseos = $localStorage.listasdeseos.find(function(listadeseos){
-		return listadeseos.id === $scope.idlistadeseos
+	$scope.listaDeseos=_newListDeseos()
 
-	})*/
+	verListaDeseosProducts()
 
-		
+	function verListaDeseosProducts(){	
+		listaDeseosService.getInfoList($scope.idlistadeseos).then(function (response) {
+			let listaDeseo = response.data
+			$scope.listaDeseos = listaDeseo
+        })
+        listaDeseosService.getListProducts($scope.idlistadeseos).then(function (response) {
+			let data = response.data
+			$scope.$storage.listaproducts = data
+        })
+	}
+
+	function _newListDeseos(){
+		return {id:'',name:''}
+	}
+	
 }
 
 module.exports = ListaDeseosDetalleController

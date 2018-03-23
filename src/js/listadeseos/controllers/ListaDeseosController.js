@@ -34,7 +34,6 @@ function ListaDeseosController($scope, $stateParams,$localStorage, listaDeseosSe
         listaDeseosService.add(name).then(function (response) {
         	if (response.status = 201) {
           		alert(`${name} fue creado como una nuneva lista`)
-          		$('listadeseo_nombre').value="";
           		_obtenerListasDeseos()
         	}
         })
@@ -59,7 +58,6 @@ function ListaDeseosController($scope, $stateParams,$localStorage, listaDeseosSe
       		return alert('Inicia sesión para eliminar listas de deseos')
     	}
         listaDeseosService.delete(lista).then(function (response) {
-        	console.log(lista)
       		if (response.status == 204) {
         		_obtenerListasDeseos()
       		}

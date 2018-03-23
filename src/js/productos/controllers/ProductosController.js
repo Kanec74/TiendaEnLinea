@@ -1,5 +1,5 @@
-ProductosController.$inject = ['$scope','$http', 'WEB_SERVICE', '$localStorage', '$state', '$q', 'carritoDeCompraService', 'productoService']
-function ProductosController($scope, $http, WEB_SERVICE, $localStorage, $state, $q, carritoDeCompraService, productoService){
+ProductosController.$inject = ['$scope','$http', 'WEB_SERVICE', '$localStorage', '$state', '$q', 'carritoDeCompraService', 'listaDeseosService', 'productoService']
+function ProductosController($scope, $http, WEB_SERVICE, $localStorage, $state, $q, carritoDeCompraService, listaDeseosService, productoService){
 
 	$scope.$storage = $localStorage.$default({
 		productos:[]
@@ -13,18 +13,12 @@ function ProductosController($scope, $http, WEB_SERVICE, $localStorage, $state, 
 		productoService.get().then(function (response) {
 				$scope.$storage.productos = response.data
         })
-
-
 		/*$http.get(WEB_SERVICE+'/products')
 		.then(function(response) {
 			let producto = response.data
 			$scope.$storage.productos = producto
 		})*/
 	}
-
-	//$scope.addProducto = function (){
-
-//	}
 	
 	$scope.removeProducto = function(index){
 		if ($scope.$storage.user.role == 'admin'){
@@ -64,32 +58,6 @@ function ProductosController($scope, $http, WEB_SERVICE, $localStorage, $state, 
           		alert(`${product.name} fue añadido al carrito`)
         	}
         })
-		/*$scope.$storage.productos.forEach(function (elemento, indice, array) {
-    		if (indice === index){
-    			//let producto = $scope.$storage.productos.splice(index,1)
-    			$scope.producto = elemento
-
-    		}
-    		
-		});
-
-		
-		let itemcarrito =  newItemCarrito($scope.producto )
-
-		var itemcarritoActual;
-
-        for (var i = 0; i < $scope.$storage.carrito.length; i++) {
-            if ($scope.$storage.carrito[i].productoId == itemcarrito.productoId) {
-                itemcarritoActual = $scope.$storage.carrito[i];
-            }
-        }
-
-        if (!itemcarritoActual) {
-            $scope.$storage.carrito.push(itemcarrito);
-        } else {
-            itemcarritoActual.lot++;
-        }
-*/
 				
 	}
 
@@ -98,6 +66,18 @@ function ProductosController($scope, $http, WEB_SERVICE, $localStorage, $state, 
 
 		return { productoId: producto.id, name: producto.name, price: producto.price, lot:'1', total: producto.price}
 	}
+
+	$scope.addItemListaDeseos = function(product,idlista){
+		if (!$scope.isAuthenticated()) {
+      		return alert('Inicia sesión para añadir productos al carrito')
+    	}
+        listaDeseosService.addProductALista(product,idlista).then(function (response) {
+
+        	if (response.status = 201) {
+          		alert(`${product.name} fue añadido a una la lista de deseos`)
+        	}
+        })
+    }
 }
 
 
