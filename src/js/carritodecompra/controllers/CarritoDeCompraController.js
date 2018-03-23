@@ -5,7 +5,6 @@ function CarritoDeCompraController($scope, $localStorage, carritoDeCompraService
 	$scope.$storage = $localStorage.$default({
 		carrito:[]
 	})
-
 	//$scope.itemcarrito = {}
 	//$scope.itemcarrito = _newItemCarrito()
 	if ($scope.isAuthenticated()) {
@@ -46,16 +45,17 @@ function CarritoDeCompraController($scope, $localStorage, carritoDeCompraService
 	function _getTotal(){
 		var totalCompra=0;
 		for (var i = 0; i < $scope.$storage.carrito.length; i++) {
-	        totalCompra = parseFloat(totalCompra) + parseFloat($scope.$storage.carrito[i].total);
+	        totalCompra = parseFloat(totalCompra) + parseFloat($scope.$storage.carrito[i].price);
 	    }
 		return totalCompra
 	}
 
-    $scope.totalCompra = _getTotal()
-
     function _getItemsCarrito() {
     	carritoDeCompraService.get().then(function (response) {
      	 $scope.$storage.carrito = response.data
+     	 if($scope.$storage.carrito.length>0){
+     	 	$scope.totalCompra = _getTotal()
+     	 }
    		})
   	}
 }

@@ -6,15 +6,15 @@ function ListaDeseosService($http, WEB_SERVICE) {
     },
 
     add: function _add (nombre) {
-      return $http.post( encodeURI(`${WEB_SERVICE}/wish_lists/${nombre}`), {
-        /*lista: {
+      return $http.post( encodeURI(`${WEB_SERVICE}/wish_lists`), {
+        wish_list: {
           name: nombre
-        }*/
+        }
       })
     },
 
     delete: function _delete (lista) {
-      return $http.delete( encodeURI(`${WEB_SERVICE}//wish_lists/${lista.id}`) )
+      return $http.delete( encodeURI(`${WEB_SERVICE}/wish_lists/${lista.id}`) )
     }
   }
 }

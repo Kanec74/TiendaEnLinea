@@ -26,10 +26,10 @@
         <!-- <td>{{listadeseo.id}}</td> -->
         <td>{{listadeseo.name}}</td>
         <td>
-          
+          <button type="button" class="btn btn-outline-info" ng-click="app.listadeseos.detalle({idlista: listadeseo.id})">Ver Detalle</button>
           <button type="button" class="btn btn-outline-info" ng-click="editarListaDeseos({name: listadeseo.name})">Editar Lista</button>
           
-          <button type="button" class="btn btn-outline-danger" ng-click="removeListaDeseos($index)"> <i class="material-icons">delete_forever</i> </button>
+          <button type="button" class="btn btn-outline-danger" ng-click="removeListaDeseos(listadeseo)"> <i class="material-icons">delete_forever</i> </button>
           
         </td>
       </tr>
